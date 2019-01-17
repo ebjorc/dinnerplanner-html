@@ -1,6 +1,6 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
-  var guests;
+  var guests = 0;
   var dishesAdded = [];
 
 
@@ -14,11 +14,11 @@ var DinnerModel = function() {
 
 	//Returns the dish that is on the menu for selected type
 	this.getSelectedDish = function(type) {
-    for(int i = 0; i < dishesAdded.size(); i++){
-      if(dishesAdded[i].type == type) {
-        return dishesAdded[i];
-      }
-    }
+		dishesAdded.forEach(function(dish) {
+			if(dish.type == type){
+				return dish;
+			}
+		});
 	}
 
 	//Returns all the dishes on the menu.
@@ -28,23 +28,39 @@ var DinnerModel = function() {
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 1
+		var allIngridients = [];
+		dishesAdded.forEach(function(dish){
+			dish.ingredients.forEach(function(currentIngredient){
+					allIngridients.push(currentIngredient)
+			});
+		});
+		return allIngridients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
+		return getAllIngredients * guests;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 1
+		var dish = getDish(id);
+		var dishType = dish.type;
+		var menu = getFullMenu();
+		menu.forEach(function(currentDish){
+			if(currentDish.type == dishType) {
+				removeDishFromMenu(currentDish.id);
+			}
+		});
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 1
+		var menu = getFullMenu();
+		dishesAdded = menu.filter(function(dish){
+			return (dish.id != id);
+		});
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
