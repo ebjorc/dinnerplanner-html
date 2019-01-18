@@ -1,0 +1,20 @@
+#homeView {
+  display: flex;
+  flex-direction: column;
+  height: 100vh
+}
+
+#DinnerTitle{
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+#textView{
+  padding-top: 20vh;
+  padding-bottom: 20vh;
+}
+
+#buttonView{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
