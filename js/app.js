@@ -3,7 +3,7 @@ $(function() {
 	var model = new DinnerModel();
 
 	// And create the instance of homeView
-	var homeView = new homeView($("#homeView"));
+	var home = new home($("#home"));
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
