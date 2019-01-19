@@ -24,6 +24,19 @@
     background-color: #E8CF7D;
  }
 
+ #printoutHeader {
+     border-bottom:solid black 3px;
+  }
+
+#dish-row {
+  padding-top: 20px;
+}
+
+.right-padding {
+  align-items: right;
+  padding-left: 30%;
+}
+
  hr {
   -moz-border-bottom-colors: none;
   -moz-border-image: none;
