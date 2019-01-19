@@ -1,5 +1,4 @@
 
-
 var DishDetailsView = function (container, model) {
   var dish = model.getDish(1);
 
@@ -22,7 +21,5 @@ var DishDetailsView = function (container, model) {
     totalPrice += parseInt(ingredient.price);
   });
   container.find("#totalPrice").html("SEK " + totalPrice);
-
-
 
 }

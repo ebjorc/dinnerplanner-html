@@ -2,7 +2,8 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 
-	var dishDetailsView = new DishDetailsView($("#dish_details"), model);
+	//var dishDetailsView = new DishDetailsView($("#dish_details"), model);
+	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
