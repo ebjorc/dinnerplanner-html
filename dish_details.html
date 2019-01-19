@@ -12,7 +12,7 @@
   </head>
   <body>
 
-	<div id="dish_details" class="text-center">
+	<div class="text-center">
 		<div id= "DinnerTitle" class="bg-light">
 			<h1> Dinner planner</h1>
 		</div>
@@ -22,39 +22,19 @@
         <div class="col-lg-2">
           <h2>My dinner bla bla</h2>
         </div>
-        <div class="col-lg-10">
-          `<div class="row">
+        <div id="dish_details" class="col-lg-10">
+          <div class="row">
               <div class="col-lg-6">
                 <h2 id="dishName">Lasagne</h2>
-                <img src="./images/meatballs.jpg">
-                <p>Lasagne is a very nice dish. Please eat it.</p>
+                <img id="dishImage" src="./images/meatballs.jpg"/>
+                <p id="dishDescription">This is a very nice dish. Please eat it.</p>
                 <button type="button" class="btn btn-warning">back to search</button>
               </div>
             <div class="col-lg-6">
               <div id="Ingredients">
                 <h3>Ingredients for 3 people</h3>
                 <hr>
-                <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <td>A bit</td>
-                      <td>paprika</td>
-                      <td>SEK</td>
-                      <td>10</td>
-                    </tr>
-                    <tr>
-                      <td>2 mts</td>
-                      <td>salt</td>
-                      <td>SEK</td>
-                      <td>20</td>
-                    </tr>
-                    <tr>
-                      <td>idk</td>
-                      <td>olja</td>
-                      <td>SEK</td>
-                      <td>30</td>
-                    </tr>
-                  </tbody>
+                <table id="ingredientsTable" class="table table-borderless">
                 </table>
                 <hr>
                 <div>
@@ -63,16 +43,16 @@
                       <button type="button" class="btn btn-warning">Add to menu</button>
                     </div>
                     <div class="col-lg-6">
-                      <h6>Sek bla bla</h6>
+                      <h6 id="totalPrice">Sek bla bla</h6>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-        </div>`
+        </div>
           <div class="prep">
             <h2>Preparation</h2>
-            <p> Klassisk italiensk lasagne enligt Paolo Roberto.
+            <p id= "preparation"> Klassisk italiensk lasagne enligt Paolo Roberto.
                 En sofritto med lök, morot och selleri samt rejält med
                 tomatpuré i såsen samt två sorter ost är några av hemligheterna
                 för att få till den perfekta lasagnen.
@@ -90,7 +70,6 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/home.js"></script>
-	<!-- TODO: Here you should include JS code for your other views -->
+	<script src="js/view/dishDetailsView.js"></script>
   </body>
 </html>

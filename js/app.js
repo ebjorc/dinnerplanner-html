@@ -2,8 +2,7 @@ $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
 
-	// And create the instance of homeView
-	var home = new home($("#home"));
+	var dishDetailsView = new DishDetailsView($("#dish_details"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
