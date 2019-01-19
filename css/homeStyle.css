@@ -18,3 +18,22 @@
   padding-top: 2vh;
   padding-bottom: 2vh;
 }
+
+#Ingredients {
+    border:3px solid black;
+    background-color: #E8CF7D;
+ }
+
+ hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-image: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: #EEEEEE -moz-use-text-color #FFFFFF;
+  border-style: solid none;
+  border-width: 2px 0;
+  margin: 10px 0;
+  margin-left: 10%;
+  margin-right: 10%;
+}
