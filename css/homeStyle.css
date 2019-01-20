@@ -37,6 +37,23 @@
   padding-left: 30%;
 }
 
+.bordered {
+  border:3px solid black;
+}
+
+.dishContainer {
+  padding-top: 30px
+}
+
+.leftBorder {
+  border-left:solid black 3px;
+}
+
+.bottomAlign {
+  margin-top: 150px;
+  text-align: center;
+}
+
  hr {
   -moz-border-bottom-colors: none;
   -moz-border-image: none;
