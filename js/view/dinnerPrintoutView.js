@@ -1,6 +1,13 @@
 var DinnerPrintoutView = function (container, model) {
-  var dishes = [model.getDish(1), model.getDish(100), model.getDish(101)];
+  model.addDishToMenu(1);
+  model.addDishToMenu(100);
+  model.addDishToMenu(200);
+  model.setNumberOfGuests(2);
+  var dishes = model.getFullMenu();
   var addedRows = [];
+
+  var numberOfGuests = container.find("#numberOfGuests");
+  numberOfGuests.html("My Dinner: " + model.getNumberOfGuests() + " guests");
 
   var dishRow = container.find("#dish-row")
 

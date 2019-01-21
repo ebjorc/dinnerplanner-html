@@ -20,7 +20,7 @@
     <div class="contaier">
       <div id="printoutHeader" class="row">
         <div class="col-lg-6">
-          <h2>My Dinner: 3 people</h2>
+          <h2 id="numberOfGuests"></h2>
         </div>
         <div class="col-lg-6">
           <button type="button" class="btn btn-warning">go back and edit dinner</button>
@@ -33,14 +33,14 @@
           <div class="col-lg-2 dishCell">
             <div>
               <img id="dishImage" src = "./images/toast.jpg">
-              <h2 id = "dishName" >Lasagne</h2>
+              <h2 id = "dishName" ></h2>
             </div>
-            <h6 id = "dishPrice">123 SEK</h6>
+            <h6 id = "dishPrice"></h6>
           </div>
           <div class="col-lg-1 leftBorder priceCell">
             <div class="bottomAlign">
               <h6>Total:</h6>
-              <h6>123 SEK</h6>
+              <h6 id="totalPrice"></h6>
             </div>
           </div>
         </div>
