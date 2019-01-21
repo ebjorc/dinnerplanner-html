@@ -9,7 +9,7 @@ var DinnerModel = function() {
 	}
 
 	this.getNumberOfGuests = function() {
-		return 2;
+		return guests;
 	}
 
 	//Returns the dish that is on the menu for selected type
@@ -29,35 +29,40 @@ var DinnerModel = function() {
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		var allIngridients = [];
-		dishesAdded.forEach(function(dish){
-			dish.ingredients.forEach(function(currentIngredient){
-					allIngridients.push(currentIngredient)
-			});
-		});
+    dishesAdded.forEach((dish) => {
+      dish.ingredients.forEach((currentIngredient) => {
+        allIngridients.push(currentIngredient)
+      });
+    });
 		return allIngridients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		return getAllIngredients * guests;
+    var ingredients = this.getAllIngredients();
+    var totalPrice = 0;
+    ingredients.forEach((ingredient) => {
+      totalPrice += ingredient.price;
+    });
+		return totalPrice * guests;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var dish = getDish(id);
+		var dish = this.getDish(id);
 		var dishType = dish.type;
-		var menu = getFullMenu();
-		menu.forEach(function(currentDish){
+		dishesAdded.forEach((currentDish) => {
 			if(currentDish.type == dishType) {
-				removeDishFromMenu(currentDish.id);
-			}
+			      this.removeDishFromMenu(currentDish.id);
+			};
 		});
-	}
+    dishesAdded.push(dish);
+	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		var menu = getFullMenu();
+		var menu = this.getFullMenu();
 		dishesAdded = menu.filter(function(dish){
 			return (dish.id != id);
 		});

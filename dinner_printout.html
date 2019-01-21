@@ -12,22 +12,21 @@
   </head>
   <body>
 
-	<div class="text-center">
-		<div id= "DinnerTitle" class="bg-light">
-			<h1> Dinner planner</h1>
-		</div>
-  <div class="contaier">
-    <di id="printoutHeader" class="row">
-      <div class="col-lg-6">
-        <h2>My Dinner: 3 people</h2>
-      </div>
-      <div class="col-lg-6">
-        <button type="button" class="btn btn-warning">go back and edit dinner</button>
+  <div id = "dinnerPrintoutView" class="contaier">
+    <div class="text-center">
+  		<div id= "DinnerTitle" class="bg-light">
+  			<h1> Dinner planner</h1>
+  		</div>
+    <div class="contaier">
+      <di id="printoutHeader" class="row">
+        <div class="col-lg-6">
+            <h2 id="numberOfGuests"></h2>
+        </div>
+        <div class="col-lg-6">
+          <button type="button" class="btn btn-warning">go back and edit dinner</button>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div id = "dinnerPrintoutView" class="contaier">
     <div id="dish-row" class="contaier">
       <div class="row">
         <div id ="dish" class="col-lg-6">
