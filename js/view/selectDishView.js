@@ -1,7 +1,7 @@
 var SelectDishView = function(container, model){
 
   var dishes = model.getAllDishes("starter");
-  
+
 
   var dishItemScrollView = container.find("#dishItemScrollView");
 

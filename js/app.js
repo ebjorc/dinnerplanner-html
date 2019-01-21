@@ -5,7 +5,8 @@ $(function() {
 	//var dishDetailsView = new DishDetailsView($("#dish_details"), model);
 	//var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 	//var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverview"), model);
-	var selectDishView = new SelectDishView($("#selectDishView"), model);
+	//var selectDishView = new SelectDishView($("#selectDishView"), model);
+	var selectDishAgainView = new SelectDishAgainView($("#selectDishAgainView"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
