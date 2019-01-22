@@ -5,7 +5,7 @@ var SelectDishView = function(container, model){
 
   var dishItemScrollView = container.find("#dishItemScrollView");
 
-  dishes.forEach(function(dish) {
+  dishes.forEach( function(dish) {
 
     var div = document.createElement('div');
     div.className = 'imgContainer';
@@ -19,13 +19,6 @@ var SelectDishView = function(container, model){
     div.append(img);
     div.append(imgText);
     dishItemScrollView.append(div);
-
   });
-
-
-
-
-
-
 
 }
