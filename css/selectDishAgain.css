@@ -1,0 +1,158 @@
+#selectDishView{
+  width: 100%;
+  height: 100%;
+}
+
+#rowView{
+  width: 100%;
+  height: 100%;
+}
+
+.imgContainer{
+    float:left;
+    padding-left: 2%;
+    padding-right: 2%;
+    text-align: center;
+}
+
+#DinnerTitleView{
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+#sideBarItem{
+  padding-top: 2%;
+}
+
+#sideBarItemDiv{
+  padding-top: 5%;
+}
+
+#sideBarHeader{
+  padding-top: 2%;
+  padding-left: 1%;
+}
+
+#findDishHeader{
+  padding-top: 4%;
+}
+
+
+#peopleScroller{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 3%;
+}
+
+#dishNameCostBar{
+  padding-top: 3%;
+}
+
+#searchbar{
+  padding-top: 2%;
+  padding-left: 6%;
+  padding-bottom: 4%;
+}
+
+#categoryInput{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+#dishItemScrollView{
+  padding-top: 5%;
+}
+img {
+  border:1px solid #021a40;
+  width: 25vh;;
+  height: 25vh;
+}
+
+.scrollable {
+    height: 100vh; /* or any value */
+    overflow-y: auto;
+}
+
+#costCounter{
+  padding-top: 1vh;
+}
+
+#confirmDinnerButton{
+  padding-top: 2vh;
+}
+
+.fas {
+  font-family: 'FontAwesome' !important;
+}
+
+#barsIcon{
+  vertical-align: middle;
+}
+
+#collapseButton{
+  visibility: hidden;
+}
+
+col-1 {width: 8.33%;}
+col-2 {width: 16.66%;}
+col-3 {width: 25%;}
+col-4 {width: 33.33%;}
+col-5 {width: 41.66%;}
+col-6 {width: 50%;}
+col-7 {width: 58.33%;}
+col-8 {width: 66.66%;}
+col-9 {width: 75%;}
+col-10 {width: 83.33%;}
+col-11 {width: 91.66%;}
+col-12 {width: 100%;}
+
+@media only screen and (max-width: 768px) {
+
+  #sideBarView{
+    width: 100%;
+    border-right: 0;
+
+  }
+
+  #rowView{
+    margin-right: 0%;
+    margin-left: 0%;
+
+  }
+
+  #dishSearchView{
+    width: 100%;
+
+  }
+
+
+  #findDishView{
+    width: 100%;
+  }
+
+  #dishItemScrollView{
+    width: 100%;
+  }
+
+  #barsIcon{
+    visibility: visible;
+  }
+
+  #costCounter{
+    padding-right: 1%;
+  }
+
+  #findDishHeader{
+    text-align: center;
+  }
+
+  #searchbar{
+    padding-left: 0%;
+    justify-content: center;
+  }
+
+  .imgContainer{
+    width: 100%;
+  }
+
+}
