@@ -1,25 +1,31 @@
 
 var DishDetailsView = function (container, model) {
-  var dish = model.getDish(1);
 
-  var dishName = container.find("#dishName");
-  dishName.html(dish.name);
+  this.update = function(model, changeDetails) {
+    var dish = model.getCurrentDish();
 
-  var dishDescription = container.find("#dishDescription");
-  dishDescription.html(dish.type);
+    if(dish && changeDetails == ChangeDetails.CURRENT_DISH_CHANGED) {
+      var dishName = container.find("#dishName");
+      dishName.html(dish.name);
 
-  var dishPreparation = container.find("#preparation");
-  dishPreparation.html(dish.description);
+      var dishDescription = container.find("#dishDescription");
+      dishDescription.html(dish.type);
 
-  var dishImage = container.find("#dishImage");
-  dishImage.attr("src", "./images/" + dish.image);
+      var dishPreparation = container.find("#preparation");
+      dishPreparation.html(dish.description);
 
-  var table = container.find("#ingredientsTable");
-  var totalPrice = 0;
-  dish.ingredients.forEach(function(ingredient) {
-    table.append("<tr><td>"  + ingredient.quantity + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price + "</td></tr>");
-    totalPrice += parseInt(ingredient.price);
-  });
-  container.find("#totalPrice").html("SEK " + totalPrice);
+      var dishImage = container.find("#dishImage");
+      dishImage.attr("src", "./images/" + dish.image);
 
+      var table = container.find("#ingredientsTable");
+      var totalPrice = 0;
+      dish.ingredients.forEach(function(ingredient) {
+        table.append("<tr><td>"  + ingredient.quantity + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price + "</td></tr>");
+        totalPrice += parseInt(ingredient.price);
+      });
+      container.find("#totalPrice").html("SEK " + totalPrice);
+    }
+  }
+
+  model.addObserver(this.update);
 }

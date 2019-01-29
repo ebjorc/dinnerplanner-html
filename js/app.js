@@ -6,10 +6,12 @@ $(function() {
 
 	var homeView = new HomeView($("#homeView"), model);
 	var homeViewController = new HomeViewController($("#homeView"), model, stateController);
-	var dishSearchView = new DishSearchView($("#dishSearchView"), $("#dishItemCellView"), model,stateController);
+	var dishSearchView = new DishSearchView($("#dishSearchView"), $("#dishItemCellView"), model, stateController);
 	var dishSearchViewController = new DishSearchViewController($("#dishSearchView"),model,stateController);
+	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
+	var dishDetailsViewController = new DishDetailsViewController($("#dishDetailsView"), model, stateController);
 
-	// var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
+
 	// var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 	// var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverview"), model);
 

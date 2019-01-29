@@ -3,10 +3,52 @@ var DinnerModel = function() {
   var guests = 0;
   var dishesAdded = [];
   var currentDish;
+  var observers = [];
+  var filterType;
+  var filterKeyword;
 
+  this.addObserver = function(observer){
+    observers.push(observer);
+    }
+
+  this.notifyObservers = function(changeDetails) {
+    observers.forEach((observer) => {
+          observer(this, changeDetails);
+  });
+  }
+
+  this.removeObserver = function(observer){
+
+  }
+
+  this.setCurrentDish = function(dish) {
+    this.currentDish = dish;
+    this.notifyObservers(ChangeDetails.CURRENT_DISH_CHANGED);
+  }
+
+  this.getCurrentDish = function() {
+    return this.currentDish;
+  }
+
+  this.setFilterTypeAndKeyword = function(type, keyword) {
+    if(this.filterKeyword != keyword || this.filterType != type) {
+      this.filterType = type;
+      this.filterKeyword = keyword;
+      this.notifyObservers();
+    }
+  }
+
+  this.getFilterType = function() {
+    return this.filterType;
+  }
+
+  this.getFilterKeyword = function() {
+    return this.filterKeyword;
+  }
 
 	this.setNumberOfGuests = function(num) {
 		guests = num;
+    this.notifyObservers();
 	}
 
 	this.getNumberOfGuests = function() {
@@ -59,6 +101,7 @@ var DinnerModel = function() {
 			};
 		});
     dishesAdded.push(dish);
+    this.notifyObservers();
 	};
 
 	//Removes dish from menu
@@ -67,6 +110,7 @@ var DinnerModel = function() {
 		dishesAdded = menu.filter(function(dish){
 			return (dish.id != id);
 		});
+    this.notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -87,7 +131,7 @@ var DinnerModel = function() {
 				found = true;
 			}
 		}
-	  	return dish.type == type && found;
+	  	return (dish.type == type || !type) && found;
 	  });
 	}
 
@@ -99,6 +143,7 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
 
 
 	// the dishes variable contains an array of all the

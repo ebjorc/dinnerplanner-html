@@ -20,7 +20,7 @@ var GeneralStateController = function() {
     dishPrintOutView.hide();
   }
 
-  this.showShowSelectDishScreen = function() {
+  this.showSelectDishScreen = function() {
     homeView.hide();
     row.show();
   }
