@@ -2,6 +2,7 @@
 var DinnerModel = function() {
   var guests = 0;
   var dishesAdded = [];
+  var currentDish;
 
 
 	this.setNumberOfGuests = function(num) {
