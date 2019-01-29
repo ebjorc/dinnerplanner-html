@@ -18,6 +18,7 @@ var DishDetailsView = function (container, model) {
       dishImage.attr("src", "./images/" + dish.image);
 
       var table = container.find("#ingredientsTable");
+      table.empty();
       var totalPrice = 0;
       dish.ingredients.forEach(function(ingredient) {
         table.append("<tr><td>"  + ingredient.quantity + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price + "</td></tr>");

@@ -101,7 +101,7 @@ var DinnerModel = function() {
 			};
 		});
     dishesAdded.push(dish);
-    this.notifyObservers();
+    this.notifyObservers(ChangeDetails.MENU_CHANGED);
 	};
 
 	//Removes dish from menu
@@ -110,7 +110,7 @@ var DinnerModel = function() {
 		dishesAdded = menu.filter(function(dish){
 			return (dish.id != id);
 		});
-    this.notifyObservers();
+    this.notifyObservers(ChangeDetails.MENU_CHANGED);
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

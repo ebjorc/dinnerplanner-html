@@ -7,6 +7,7 @@ var GeneralStateController = function() {
 	var dishItemCellView = $("#dishItemCellView");
 	var dishDinnerOverView = $("#dinnerOverview");
 	var dishPrintOutView = $("#dinnerPrintoutView");
+  var sideBarItem = $("#sideBarItem")
 	row.append(sideBarView);
 	row.append(dishSearchView);
   row.append(dishDetailsView);
@@ -18,6 +19,7 @@ var GeneralStateController = function() {
     dishItemCellView.hide();
     dishDinnerOverView.hide();
     dishPrintOutView.hide();
+    sideBarItem.hide();
   }
 
   this.showSelectDishScreen = function() {
@@ -28,5 +30,10 @@ var GeneralStateController = function() {
   this.showDishDetailsScreen = function() {
     dishSearchView.hide();
     dishDetailsView.show();
+  }
+
+  this.backToSearchDishView = function() {
+    dishSearchView.show();
+    dishDetailsView.hide();
   }
 }

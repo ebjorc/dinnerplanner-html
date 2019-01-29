@@ -10,6 +10,7 @@ $(function() {
 	var dishSearchViewController = new DishSearchViewController($("#dishSearchView"),model,stateController);
 	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
 	var dishDetailsViewController = new DishDetailsViewController($("#dishDetailsView"), model, stateController);
+	var sideBarView = new SideBarView($("#sideBarView"),$("#sideBarItem"),model);
 
 
 	// var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
