@@ -52,5 +52,5 @@ var DishSearchView = function(container, imageView, model, stateController) {
   model.addObserver(this.update)
 
   var dishes = model.getAllDishes();
-  this.redraw(dishes);
+  redraw(dishes);
 }
