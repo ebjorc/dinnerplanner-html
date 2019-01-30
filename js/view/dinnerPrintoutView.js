@@ -1,36 +1,33 @@
 var DinnerPrintoutView = function (container, model) {
-  model.addDishToMenu(1);
-  model.addDishToMenu(100);
-  model.addDishToMenu(200);
-  //model.addDishToMenu(2);
-  model.setNumberOfGuests(5);
-  var dishes = model.getFullMenu();
-  var addedRows = [];
+  this.update = function() {
+    var dishes = model.getFullMenu();
+    var addedRows = [];
 
-  var numberOfGuests = container.find("#numberOfGuests");
-  numberOfGuests.html("My Dinner: " + model.getNumberOfGuests() + " guests");
+    var numberOfGuests = container.find("#numberOfGuests");
+    numberOfGuests.html("My Dinner: " + model.getNumberOfGuests() + " guests");
 
-  var dishRow = container.find("#dish-row")
+    var dishRow = container.find("#dish-row")
 
-  dishes.forEach(function(dish) {
-    var row = dishRow.clone();
+    dishes.forEach(function(dish) {
+      var row = dishRow.clone();
 
-    var dishName = row.find("#dishName");
-    dishName.html(dish.name);
+      var dishName = row.find("#dishName");
+      dishName.html(dish.name);
 
-    var dishImage = row.find("#dishImage");
-    dishImage.attr("src", "./images/" + dish.image);
+      var dishImage = row.find("#dishImage");
+      dishImage.attr("src", "./images/" + dish.image);
 
-    var dishDescription = row.find("#dishDescription");
-    dishDescription.html(dish.type);
+      var dishDescription = row.find("#dishDescription");
+      dishDescription.html(dish.type);
 
-    var dishPreparation = row.find("#preparation");
-    dishPreparation.html(dish.description);
-    addedRows.push(row);
-  });
+      var dishPreparation = row.find("#preparation");
+      dishPreparation.html(dish.description);
+      addedRows.push(row);
+    });
 
-  dishRow.remove();
-  addedRows.forEach(function(row) {
-    container.append(row);
-  })
+    dishRow.remove();
+    addedRows.forEach(function(row) {
+      container.append(row);
+    })
+  }
 }

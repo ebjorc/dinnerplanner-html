@@ -1,6 +1,6 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
-  var guests = 0;
+  var guests = 1;
   var dishesAdded = [];
   var currentDish;
   var observers = [];
@@ -33,8 +33,11 @@ var DinnerModel = function() {
   this.setFilterTypeAndKeyword = function(type, keyword) {
     if(this.filterKeyword != keyword || this.filterType != type) {
       this.filterType = type;
+      if (this.filterType == "All") {
+        this.filterType = null;
+      }
       this.filterKeyword = keyword;
-      this.notifyObservers();
+      this.notifyObservers(ChangeDetails.FILTER_CHANGED);
     }
   }
 
@@ -48,7 +51,7 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		guests = num;
-    this.notifyObservers();
+    this.notifyObservers(ChangeDetails.GUESTS_CHANGED);
 	}
 
 	this.getNumberOfGuests = function() {
@@ -89,6 +92,18 @@ var DinnerModel = function() {
     });
 		return totalPrice * guests;
 	}
+
+  this.getDishPrice = function(id) {
+    for(key in dishes){
+			if(dishes[key].id == id) {
+        var totalPrice = 0;
+        dishes[key].ingredients.forEach((ingredient) => {
+          totalPrice += ingredient.price;
+        });
+				return totalPrice
+			}
+		}
+  }
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.

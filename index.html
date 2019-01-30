@@ -44,35 +44,36 @@
                 </button>
             </div>
         </div>
+        <div id = "collapseContainer">
+          <div id="peopleScroller" class="row justify-content-start">
+              <h6 id="peopleHeader" class="col-md-6 col-4">People</h6>
 
-        <div id="peopleScroller" class="row justify-content-start">
-            <h6 id="peopleHeader" class="col-md-6 col-4">People</h6>
+              <select class="form-control form-control-sm col-md-3 col-2">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+              </select>
 
-            <select class="form-control form-control-sm col-md-3 col-2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-            </select>
+          </div>
+          <div id="dishNameCostBar" class="row border-top border-bottom border-dark bg-light justify-content-around">
+              <h6 id="dishNameText" class="col-md-8 col-10">Dish Name</h6>
+              <h6 id="costText" class="col-md-3 col-2">Cost</h6>
+          </div>
+          <div id="sideBarItemDiv">
 
-        </div>
-        <div id="dishNameCostBar" class="row border-top border-bottom border-dark bg-light justify-content-around">
-            <h6 id="dishNameText" class="col-md-8 col-10">Dish Name</h6>
-            <h6 id="costText" class="col-md-3 col-2">Cost</h6>
-        </div>
-        <div id="sideBarItemDiv">
-
-        </div>
-        <div id="costCounter">
-            <h6 class="text-right text-warning">SEK 0.00</h6>
-        </div>
-        <div id="confirmDinnerButton" class="col text-center">
-            <button type="button" class="btn btn-secondary btn-md border border-dark">Confirm Dinner</button>
-        </div>
+          </div>
+          <div id="costCounter">
+              <h6 id = "totalCostLabel"  class="text-right text-warning">SEK 0.00</h6>
+          </div>
+          <div  class="col text-center">
+              <button id="confirmDinnerButton" type="button" class="btn btn-secondary btn-md border border-dark">Confirm Dinner</button>
+          </div>
+      </div>
     </div>
 
 
@@ -144,7 +145,7 @@
                     <h2 id="numberOfGuests"></h2>
                 </div>
                 <div class="col-lg-6">
-                    <button type="button" class="btn btn-warning">go back and edit dinner</button>
+                    <button id = "dinnerOverviewBackButton" type="button" class="btn btn-warning">go back and edit dinner</button>
                 </div>
             </div>
         </div>
@@ -154,7 +155,7 @@
                 <div id="dishRowContainer" class="row justify-content-md-center">
                     <div class="col-lg-2 dishCell">
                         <div>
-                            <img id="dishImage" src="./images/toast.jpg">
+                            <img id="dishImage">
                             <h2 id="dishName"></h2>
                         </div>
                         <h6 id="dishPrice"></h6>
@@ -168,7 +169,7 @@
                 </div>
                 <hr>
                 <div id="buttonView">
-                    <button type="button" class="btn btn-warning btn-lg">Print Full Recipe</button>
+                    <button id = "dinnerOverviewPrintButton" type="button" class="btn btn-warning btn-lg">Print Full Recipe</button>
                 </div>
             </div>
         </div>
@@ -182,7 +183,7 @@
                     <h2 id="numberOfGuests"></h2>
                 </div>
                 <div class="col-lg-6">
-                  <button type="button" class="btn btn-warning">go back and edit dinner</button>
+                  <button id = "dinnerPrintoutBackButton" type="button" class="btn btn-warning">go back and edit dinner</button>
                 </div>
               </div>
             </div>
@@ -212,9 +213,9 @@
         </div>
 
 
-				<div id="sideBarItem"class="text-warning row border border-dark justify-content-around">
-						<h6 class="col-md-8 col-10 align-self-center"></h6>
-						<h6 class="col-md-3 col-2 align-self-center"></h6>
+				<div id="sideBarItem"class="text-warning row border border-dark justify-content-around sideBarItemClass">
+						<h6 id="sideBarItemName" class="col-md-8 col-10 align-self-center"></h6>
+						<h6 id="sideBarItemPrice" class="col-md-3 col-2 align-self-center"></h6>
 				</div>
 
 
@@ -233,10 +234,15 @@
     <script src="js/controller/dishItemCellViewController.js"></script>
     <script src="js/controller/dishSearchViewController.js"></script>
     <script src="js/controller/dishDetailsViewController.js"></script>
+    <script src="js/controller/sideBarViewController.js"></script>
+    <script src="js/controller/dinnerOverviewViewController.js"></script>
+    <script src="js/controller/dinnerPrintoutViewController.js"></script>
     <script src="js/view/dishSearchView.js"></script>
     <script src="js/view/dishDetailsView.js"></script>
     <script src="js/view/dishItemCellView.js"></script>
     <script src="js/view/sideBarView.js"></script>
+    <script src="js/view/dinnerOverviewView.js"></script>
+    <script src="js/view/dinnerPrintoutView.js"></script>
 
 
     <!-- TODO: Here you should include JS code for your other views -->

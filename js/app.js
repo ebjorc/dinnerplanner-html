@@ -1,20 +1,8 @@
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
-	var stateController = new GeneralStateController();
+	var stateController = new GeneralStateController(model);
 	stateController.showHomeScreen();
-
-	var homeView = new HomeView($("#homeView"), model);
-	var homeViewController = new HomeViewController($("#homeView"), model, stateController);
-	var dishSearchView = new DishSearchView($("#dishSearchView"), $("#dishItemCellView"), model, stateController);
-	var dishSearchViewController = new DishSearchViewController($("#dishSearchView"),model,stateController);
-	var dishDetailsView = new DishDetailsView($("#dishDetailsView"), model);
-	var dishDetailsViewController = new DishDetailsViewController($("#dishDetailsView"), model, stateController);
-	var sideBarView = new SideBarView($("#sideBarView"),$("#sideBarItem"),model);
-
-
-	// var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
-	// var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverview"), model);
 
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to

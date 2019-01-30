@@ -123,7 +123,8 @@
 #dishItemScrollView{
   padding-top: 5%;
 }
-img {
+
+.imgContainer img {
   border:1px solid #021a40;
   width: 25vh;;
   height: 25vh;
