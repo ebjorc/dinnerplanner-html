@@ -153,13 +153,7 @@
         <div>
             <div class="dishContainer">
                 <div id="dishRowContainer" class="row justify-content-md-center">
-                    <div class="col-lg-2 dishCell">
-                        <div>
-                            <img id="dishImage">
-                            <h2 id="dishName"></h2>
-                        </div>
-                        <h6 id="dishPrice"></h6>
-                    </div>
+
                     <div class="col-lg-1 leftBorder priceCell">
                         <div class="bottomAlign">
                             <h6>Total:</h6>
@@ -187,29 +181,38 @@
                 </div>
               </div>
             </div>
-            <div id="dish-row" class="contaier">
-              <div class="row">
-                <div id ="dish" class="col-lg-6">
-                  <div class="row justify-content-md-center">
-                    <div class="col-lg-5 right-padding">
-                      <img id ="dishImage">
-                    </div>
-                    <div class="col-lg-2">
-                    </div>
-                    <div class="col-lg-5">
-                      <h2 id = "dishName"></h2>
-                      <p id ="dishDescription"></p>
-                      </p>
-                    </div>
-                  </div>
+        </div>
 
+        <div id="dinnerOverviewCell" class="col-lg-2 dishCell">
+            <div>
+                <img id="dishImage">
+                <h2 id="dishName"></h2>
+            </div>
+            <h6 id="dishPrice"></h6>
+        </div>
+
+        <div id="dish-row" class="contaier, dishRowCellClass">
+          <div class="row">
+            <div id ="dish" class="col-lg-6">
+              <div class="row justify-content-md-center">
+                <div class="col-lg-5 right-padding">
+                  <img id ="dishImage">
                 </div>
-                <div class="col-lg-6">
-                  <h2>Preparation</h2>
-                  <p id = "preparation"></p>
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-5">
+                  <h2 id = "dishName"></h2>
+                  <p id ="dishDescription"></p>
+                  </p>
                 </div>
               </div>
+
             </div>
+            <div class="col-lg-6">
+              <h2>Preparation</h2>
+              <p id = "preparation"></p>
+            </div>
+          </div>
         </div>
 
 

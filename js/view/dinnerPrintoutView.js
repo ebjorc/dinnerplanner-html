@@ -1,4 +1,4 @@
-var DinnerPrintoutView = function (container, model) {
+var DinnerPrintoutView = function (container, dishRow, model) {
   this.update = function() {
     var dishes = model.getFullMenu();
     var addedRows = [];
@@ -6,7 +6,7 @@ var DinnerPrintoutView = function (container, model) {
     var numberOfGuests = container.find("#numberOfGuests");
     numberOfGuests.html("My Dinner: " + model.getNumberOfGuests() + " guests");
 
-    var dishRow = container.find("#dish-row")
+    container.find(".dishRowCellClass").remove();
 
     dishes.forEach(function(dish) {
       var row = dishRow.clone();

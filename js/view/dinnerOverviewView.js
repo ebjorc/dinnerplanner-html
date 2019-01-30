@@ -1,15 +1,16 @@
-var DinnerOverviewView = function (container, model) {
+var DinnerOverviewView = function (container,dishCell, model) {
 
   this.update = function() {
       var dishes = model.getFullMenu();
       var addedCells = [];
-      var dishCell = container.find(".dishCell");
 
       var numberOfGuests = container.find("#numberOfGuests");
       numberOfGuests.html("My Dinner: " + model.getNumberOfGuests() + " guests");
       var priceCell = container.find(".priceCell");
       var totalPrice = priceCell.find("#totalPrice");
       totalPrice.html(model.getTotalMenuPrice() + " SEK");
+
+      container.find(".dishCell").remove();
 
       dishes.forEach(function(dish) {
         var cell = dishCell.clone();
@@ -22,7 +23,7 @@ var DinnerOverviewView = function (container, model) {
 
         var dishPrice = cell.find("#dishPrice");
         dishPrice.html(dish.type);
-        
+
         addedCells.push(cell);
       });
 
