@@ -9,7 +9,9 @@ var GeneralStateController = function(model) {
 	var dinnerOverViewHtml = $("#dinnerOverview");
 	var dinnerPrintOutViewHtml = $("#dinnerPrintoutView");
   var collapseContainerHtml = $("#collapseContainer");
-  var sideBarItemHtml = $("#sideBarItem")
+  var sideBarItemHtml = $("#sideBarItem");
+  var dishRowHtml = $("#dish-row");
+  var dishOverviewCellHtml = $("#dinnerOverviewCell");
 	rowHtml.append(sideBarViewHtml);
 	rowHtml.append(dishSearchViewHtml);
   rowHtml.append(dishDetailsViewHtml);
@@ -34,6 +36,8 @@ var GeneralStateController = function(model) {
     dinnerOverViewHtml.hide();
     dinnerPrintOutViewHtml.hide();
     sideBarItemHtml.hide();
+    dishRowHtml.hide();
+    dishOverviewCellHtml.hide();
   }
 
   this.toggleSideBarItemDiv = function() {

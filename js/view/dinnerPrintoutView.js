@@ -27,6 +27,7 @@ var DinnerPrintoutView = function (container, dishRow, model) {
 
     dishRow.remove();
     addedRows.forEach(function(row) {
+      row.show();
       container.append(row);
     })
   }

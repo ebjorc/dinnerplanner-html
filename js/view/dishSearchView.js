@@ -1,6 +1,6 @@
 var DishSearchView = function(container, imageView, model, stateController) {
 
-  this.redraw = function(dishes) {
+  var redraw = function(dishes) {
     var dishItemScrollView = container.find("#dishItemScrollView");
     var cellsAdded = [];
 
@@ -19,6 +19,7 @@ var DishSearchView = function(container, imageView, model, stateController) {
   }
 
   this.update = function(model, changeDetails) {
+
     if (changeDetails == ChangeDetails.FILTER_CHANGED){
       const dishes = model.getAllDishes(model.getFilterType(), model.getFilterKeyword());
       var dishItemScrollView = container.find("#dishItemScrollView");

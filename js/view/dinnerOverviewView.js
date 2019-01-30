@@ -29,6 +29,7 @@ var DinnerOverviewView = function (container,dishCell, model) {
 
       dishCell.remove();
       addedCells.forEach(function(cell) {
+        cell.show();
         cell.insertBefore(priceCell);
       })
     }
