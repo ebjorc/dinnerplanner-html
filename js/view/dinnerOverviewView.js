@@ -33,4 +33,6 @@ var DinnerOverviewView = function (container,dishCell, model) {
         cell.insertBefore(priceCell);
       })
     }
+
+    model.addObserver(this.update);
 }

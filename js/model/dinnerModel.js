@@ -93,6 +93,7 @@ var DinnerModel = function() {
 		return totalPrice * guests;
 	}
 
+  // Get dish price for a specific dish. 
   this.getDishPrice = function(id) {
     for(key in dishes){
 			if(dishes[key].id == id) {

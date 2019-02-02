@@ -29,15 +29,25 @@ var GeneralStateController = function(model) {
   var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"),$("#dish-row"), model);
   var dinnerPrintoutViewController = new DinnerPrintoutViewController($("#dinnerPrintoutView"), model, this);
 
-  this.showHomeScreen = function() {
+
+  this.hideAll = function(){
+    homeViewHtml.hide();
     rowHtml.hide();
+    sideBarViewHtml.hide();
+    dishSearchViewHtml.hide();
     dishDetailsViewHtml.hide();
     dishItemCellViewHtml.hide();
     dinnerOverViewHtml.hide();
-    dinnerPrintOutViewHtml.hide();
     sideBarItemHtml.hide();
+    dinnerPrintOutViewHtml.hide();
     dishRowHtml.hide();
     dishOverviewCellHtml.hide();
+  }
+
+  this.showHomeScreen = function() {
+    this.hideAll();
+    homeViewHtml.show();
+
   }
 
   this.toggleSideBarItemDiv = function() {
@@ -49,34 +59,35 @@ var GeneralStateController = function(model) {
 
   }
 
+
   this.showSelectDishScreen = function() {
-    homeViewHtml.hide();
+    this.hideAll();
     rowHtml.show();
-    dinnerOverViewHtml.hide();
-    dinnerPrintOutViewHtml.hide();
+    dishSearchViewHtml.show();
+    sideBarViewHtml.show();
   }
 
   this.showDishDetailsScreen = function() {
-    dishSearchViewHtml.hide();
+    this.hideAll();
     dishDetailsViewHtml.show();
+    dishRowHtml.show();
+    rowHtml.show();
+    sideBarViewHtml.show();
+    collapseContainerHtml.show();
+
   }
 
   this.backToSearchDishView = function() {
-    dishSearchViewHtml.show();
-    dishDetailsViewHtml.hide();
+    this.showSelectDishScreen();
   }
 
   this.showDinnerOverview = function() {
-    rowHtml.hide();
-    dinnerPrintOutViewHtml.hide();
-    dinnerOverviewView.update();
+    this.hideAll();
     dinnerOverViewHtml.show();
   }
 
-  this.showDinerPrintoutView = function() {
-    rowHtml.hide();
-    dinnerOverViewHtml.hide();
-    dinnerPrintoutView.update();
+  this.showDinnerPrintoutView = function() {
+    this.hideAll();
     dinnerPrintOutViewHtml.show()
   }
 

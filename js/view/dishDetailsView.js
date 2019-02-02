@@ -17,14 +17,21 @@ var DishDetailsView = function (container, model) {
       var dishImage = container.find("#dishImage");
       dishImage.attr("src", "./images/" + dish.image);
 
+
+    }
+
+    if (dish && ChangeDetails.GUESTS_CHANGED) {
+      var ingredientsHeader = container.find("#ingredientsHeader");
+      ingredientsHeader.html("Ingredients for " + model.getNumberOfGuests() + " people")
+
+      var totalDishPrice = container.find("#totalDishPrice")
+      totalDishPrice.html("SEK " + model.getDishPrice(model.getCurrentDish().id) * model.getNumberOfGuests())
+
       var table = container.find("#ingredientsTable");
       table.empty();
-      var totalPrice = 0;
       dish.ingredients.forEach(function(ingredient) {
-        table.append("<tr><td>"  + ingredient.quantity + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price + "</td></tr>");
-        totalPrice += parseInt(ingredient.price);
+        table.append("<tr><td>"  + ingredient.quantity + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price * model.getNumberOfGuests() + "</td></tr>");
       });
-      container.find("#totalPrice").html("SEK " + totalPrice);
     }
   }
 

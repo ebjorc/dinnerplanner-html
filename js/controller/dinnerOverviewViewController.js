@@ -5,6 +5,6 @@ var DinnerOverviewViewController = function(view, model, stateController) {
   })
   var printButton = view.find("#dinnerOverviewPrintButton");
   printButton.click(function(){
-    stateController.showDinerPrintoutView();
+    stateController.showDinnerPrintoutView();
   })
 }

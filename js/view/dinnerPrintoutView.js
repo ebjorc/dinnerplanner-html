@@ -31,4 +31,5 @@ var DinnerPrintoutView = function (container, dishRow, model) {
       container.append(row);
     })
   }
+  model.addObserver(this.update);
 }

@@ -1,6 +1,6 @@
 var SideBarView = function(container, sideBar ,model) {
   this.update = function(model, changeDetails) {
-    if (changeDetails == ChangeDetails.MENU_CHANGED) {
+    if (changeDetails == ChangeDetails.GUESTS_CHANGED || changeDetails == ChangeDetails.MENU_CHANGED) {
       var dishes = model.getFullMenu();
       var rowsAdded = [];
       var sideBarItemDiv = container.find("#sideBarItemDiv")
@@ -13,7 +13,7 @@ var SideBarView = function(container, sideBar ,model) {
         name.html(dish.name);
 
         var price = row.find("#sideBarItemPrice")
-        price.html(model.getDishPrice(dish.id));
+        price.html(model.getDishPrice(dish.id) * model.getNumberOfGuests());
         rowsAdded.push(row);
       });
 
@@ -21,8 +21,6 @@ var SideBarView = function(container, sideBar ,model) {
         row.show();
         sideBarItemDiv.append(row);
       })
-    }
-    if (changeDetails == ChangeDetails.GUESTS_CHANGED || changeDetails == ChangeDetails.MENU_CHANGED) {
       var totalCostLabel = container.find("#totalCostLabel");
       totalCostLabel.html(model.getTotalMenuPrice() + " SEK");
     }

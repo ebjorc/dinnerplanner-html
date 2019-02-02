@@ -94,6 +94,21 @@
   padding-left: 1%;
 }
 
+#sideBarItemDiv{
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  vertical-align: center;
+  text-align: center;
+}
+
+#sideBarItemName{
+  padding-top: 3%;
+}
+
+#sideBarItemPrice{
+  padding-top: 3%;
+}
+
 #findDishHeader{
   padding-top: 4%;
 }
@@ -102,6 +117,7 @@
 #peopleScroller{
   padding-top: 1%;
   padding-bottom: 1%;
+  margin-bottom: 1vh;
   padding-left: 3%;
 }
 
@@ -140,7 +156,7 @@
 }
 
 #confirmDinnerButton{
-  padding-top: 2vh;
+  margin-top: 2vh;
 }
 
 .fas {
@@ -172,7 +188,7 @@ col-12 {width: 100%;}
 
   #sideBarView{
     width: 100%;
-    border-right: 0;
+    border-right: none;
 
   }
 
