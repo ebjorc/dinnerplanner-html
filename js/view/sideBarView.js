@@ -1,4 +1,7 @@
 var SideBarView = function(container, sideBar ,model) {
+
+
+
   this.update = function(model, changeDetails) {
     if (changeDetails == ChangeDetails.GUESTS_CHANGED || changeDetails == ChangeDetails.MENU_CHANGED) {
       var dishes = model.getFullMenu();
@@ -23,6 +26,10 @@ var SideBarView = function(container, sideBar ,model) {
       })
       var totalCostLabel = container.find("#totalCostLabel");
       totalCostLabel.html(model.getTotalMenuPrice() + " SEK");
+
+      var guestsInput = container.find("#guestsInput")
+      guestsInput.value = model.getNumberOfGuests();
+
     }
   }
   model.addObserver(this.update);

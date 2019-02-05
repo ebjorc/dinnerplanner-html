@@ -47,17 +47,7 @@
         <div id = "collapseContainer">
           <div id="peopleScroller" class="row justify-content-start">
               <h6 id="peopleHeader" class="col-md-6 col-4">People</h6>
-
-              <select class="form-control form-control-sm col-md-3 col-2">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-              </select>
+              <input id="guestsInput" type="number" class="col-md-4 col-3" min="1" max="99" value="1" maxlength="2">
 
           </div>
           <div id="dishNameCostBar" class="row border-top border-bottom border-dark bg-light justify-content-around">
@@ -68,7 +58,7 @@
 
           </div>
           <div id="costCounter">
-              <h6 id = "totalCostLabel"  class="text-right text-warning">SEK 0.00</h6>
+              <h6 id = "totalCostLabel"  class="text-right text-warning">0 SEK</h6>
           </div>
           <div  class="col text-center">
               <button id="confirmDinnerButton" type="button" class="btn btn-secondary btn-md border border-dark">Confirm Dinner</button>
@@ -84,10 +74,6 @@
                 <div id="searchbar" class="row border-bottom border-dark">
                     <input id="keyWordsInput" class="form-control col-md-2 col-2" type="text" placeholder="Enter key words">
                     <select id="categoryInput" class="form-control col-md-3 col-2">
-                        <option>All</option>
-                        <option>starter</option>
-                        <option>main dish</option>
-                        <option>dessert</option>
                     </select>
                     <button id="searchDishButton" type="button" class="btn btn-warning col-md-1 col-3  border border-dark	">Search</button>
 

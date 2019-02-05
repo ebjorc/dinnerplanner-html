@@ -30,7 +30,7 @@ var DishDetailsView = function (container, model) {
       var table = container.find("#ingredientsTable");
       table.empty();
       dish.ingredients.forEach(function(ingredient) {
-        table.append("<tr><td>"  + ingredient.quantity + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price * model.getNumberOfGuests() + "</td></tr>");
+        table.append("<tr><td>"  + ingredient.quantity * model.getNumberOfGuests() + " " + ingredient.unit +  "</td><td>" + ingredient.name + "</td><td>SEK</td><td>" + ingredient.price * model.getNumberOfGuests() + "</td></tr>");
       });
     }
   }

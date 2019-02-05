@@ -12,8 +12,15 @@ var SideBarViewController = function(view, model,stateController) {
   })
 
 
-  var form = view.find('.form-control');
-  form.change(function() {
-    model.setNumberOfGuests(form.val());
+  var input = view.find('#guestsInput');
+  input.change(function() {
+    if (input.val() > 99) {
+      input.val() = 99
+    }
+    else if (input.val() <= 0 || input.val() == undefined) {
+      input.val() = 1
+    }
+    model.setNumberOfGuests(input.val());
   })
+
 }

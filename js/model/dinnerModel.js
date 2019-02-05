@@ -6,6 +6,7 @@ var DinnerModel = function() {
   var observers = [];
   var filterType;
   var filterKeyword;
+  var dishTypes = ['All', 'starter', 'main dish', 'dessert'];
 
   this.addObserver = function(observer){
     observers.push(observer);
@@ -14,7 +15,7 @@ var DinnerModel = function() {
   this.notifyObservers = function(changeDetails) {
     observers.forEach((observer) => {
           observer(this, changeDetails);
-  });
+    });
   }
 
   this.removeObserver = function(observer){
@@ -28,6 +29,10 @@ var DinnerModel = function() {
 
   this.getCurrentDish = function() {
     return this.currentDish;
+  }
+
+  this.getDishTypes = function(){
+    return dishTypes;
   }
 
   this.setFilterTypeAndKeyword = function(type, keyword) {
@@ -93,7 +98,7 @@ var DinnerModel = function() {
 		return totalPrice * guests;
 	}
 
-  // Get dish price for a specific dish. 
+  // Get dish price for a specific dish.
   this.getDishPrice = function(id) {
     for(key in dishes){
 			if(dishes[key].id == id) {
@@ -138,11 +143,13 @@ var DinnerModel = function() {
 		if(filter){
 			found = false;
 			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
+        console.log(ingredient.name.toLowerCase())
+        console.log(filter.toLowerCase())
+				if(ingredient.name.toLowerCase().indexOf(filter.toLowerCase())!=-1) {
 					found = true;
 				}
 			});
-			if(dish.name.indexOf(filter) != -1)
+			if(dish.name.toLowerCase().indexOf(filter.toLowerCase()) != -1)
 			{
 				found = true;
 			}

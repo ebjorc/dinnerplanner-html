@@ -1,5 +1,17 @@
 var DishSearchView = function(container, imageView, model, stateController) {
 
+
+  var categoryInput = container.find("#categoryInput")
+  var dishTypes = model.getDishTypes();
+
+  dishTypes.forEach(function(dishType){
+    var option = new Option(dishType, dishType);
+    categoryInput.append(option);
+
+  })
+
+
+
   var redraw = function(dishes) {
     var dishItemScrollView = container.find("#dishItemScrollView");
     var cellsAdded = [];
