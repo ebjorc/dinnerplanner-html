@@ -3,10 +3,11 @@ var DinnerModel = function() {
   var guests = 1;
   var dishesAdded = [];
   var currentDish;
+  var apiDishes = [];
   var observers = [];
   var filterType;
   var filterKeyword;
-  var dishTypes = ['All', 'starter', 'main dish', 'dessert'];
+  var dishTypes = ['All', 'dessert', 'main course', 'side dish', 'appetizer', 'salad', 'bread', 'breakfast', 'soup', 'beverage', 'sauce', 'drink'];
 
   this.addObserver = function(observer){
     observers.push(observer);
@@ -134,40 +135,49 @@ var DinnerModel = function() {
     this.notifyObservers(ChangeDetails.MENU_CHANGED);
 	}
 
-	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
+	// function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
+	// you can use the filter argument to filter out the dish by name or ingredient (use for search)
+	// if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
+    var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?"
+    if(type){
+      baseUrl += "type=" + type + "?";
+    }
+    if(filter){
+      baseUrl += "query=" + filter
+    }
+    console.log(baseUrl)
 
-    return fetch("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?"
+    return fetch(baseUrl
     ,{
       headers:{
                 "X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"
     }})
     .then(function(response){return response.json();})
-    .then(function(data){console.log(data);});
-    
+    .then(function(data){return data.results});
 
 
-	  // return dishes.filter(function(dish) {
-		// var found = true;
-		// if(filter){
-		// 	found = false;
-		// 	dish.ingredients.forEach(function(ingredient) {
-    //     console.log(ingredient.name.toLowerCase())
-    //     console.log(filter.toLowerCase())
-		// 		if(ingredient.name.toLowerCase().indexOf(filter.toLowerCase())!=-1) {
-		// 			found = true;
-		// 		}
-		// 	});
-		// 	if(dish.name.toLowerCase().indexOf(filter.toLowerCase()) != -1)
-		// 	{
-		// 		found = true;
-		// 	}
-		// }
-	  // 	return (dish.type == type || !type) && found;
-	  // });
-	}
+
+
+    // return dishes.filter(function(dish) {
+    //   var found = true;
+    //   if(filter){
+    //     found = false;
+    //     dish.ingredients.forEach(function(ingredient) {
+    //       console.log(ingredient.name.toLowerCase())
+    //       console.log(filter.toLowerCase())
+    //       if(ingredient.name.toLowerCase().indexOf(filter.toLowerCase())!=-1) {
+    //         found = true;
+    //       }
+    //     });
+    //     if(dish.name.toLowerCase().indexOf(filter.toLowerCase()) != -1)
+    //     {
+    //       found = true;
+    //     }
+    //   }
+    //   return (dish.type == type || !type) && found;
+    // });
+  }
 
 
 
@@ -179,6 +189,9 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+
+
 
 
 

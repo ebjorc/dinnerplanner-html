@@ -4,10 +4,10 @@ var DishItemCellView = function(view, dish) {
   div.className = 'imgContainer';
 
   var img = document.createElement('img');
-  img.src = 'images/' + dish.image;
+  img.src = 'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg';
 
   var imgText = document.createElement('p');
-  imgText.textContent = dish.name;
+  imgText.textContent = dish.title;
 
   div.append(img);
   div.append(imgText);

@@ -4,4 +4,5 @@ var ChangeDetails = {
   MENU_CHANGED: 3,
   GUESTS_CHANGED: 4,
   FILTER_CHANGED: 5,
+  DISHTYPES_CHANGED: 6,
 };
