@@ -14,13 +14,20 @@ var SideBarViewController = function(view, model,stateController) {
 
   var input = view.find('#guestsInput');
   input.change(function() {
-    if (input.val() > 99) {
-      input.val() = 99
+    if(input.val() > 99){
+      model.setNumberOfGuests(99);
     }
-    else if (input.val() <= 0 || input.val() == undefined) {
-      input.val() = 1
+    else if(input.val() <= 0 || input.val() == undefined){
+      model.setNumberOfGuests(1);
     }
-    model.setNumberOfGuests(input.val());
-  })
+    else{
+      model.setNumberOfGuests(input.val());
+    }
+  });
 
+  input.oninput = function () {
+    if (this.value.length > 2) {
+        this.value = this.value.slice(0,2);
+    }
+}
 }
