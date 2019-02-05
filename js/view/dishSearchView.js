@@ -11,7 +11,6 @@ var DishSearchView = function(container, imageView, model, stateController) {
   })
 
 
-
   var redraw = function(dishes) {
     var dishItemScrollView = container.find("#dishItemScrollView");
     var cellsAdded = [];
@@ -36,7 +35,6 @@ var DishSearchView = function(container, imageView, model, stateController) {
 
     if (changeDetails == ChangeDetails.FILTER_CHANGED){
       const dishes = model.getAllDishes(model.getFilterType(), model.getFilterKeyword()).then(dishes => {
-        console.log(dishes)
         var dishItemScrollView = container.find("#dishItemScrollView");
 
         var children = dishItemScrollView.children();
@@ -44,8 +42,6 @@ var DishSearchView = function(container, imageView, model, stateController) {
         dishItemScrollView.find(".imgContainer").unbind()
         dishItemScrollView.find(".imgContainer").remove();
         redraw(dishes);
-
-
       });
 
 
@@ -60,7 +56,5 @@ var DishSearchView = function(container, imageView, model, stateController) {
 
   var dishes = model.getAllDishes().then(dishes => {
     redraw(dishes);
-    console.log(dishes);
-
   });
 }
