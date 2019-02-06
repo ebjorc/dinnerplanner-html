@@ -12,16 +12,16 @@ var DinnerPrintoutView = function (container, dishRow, model) {
       var row = dishRow.clone();
 
       var dishName = row.find("#dishName");
-      dishName.html(dish.name);
+      dishName.html(dish.title);
 
       var dishImage = row.find("#dishImage");
-      dishImage.attr("src", "./images/" + dish.image);
+      dishImage.attr("src", 'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg');
 
       var dishDescription = row.find("#dishDescription");
-      dishDescription.html(dish.type);
+      //dishDescription.html(dish.type);
 
       var dishPreparation = row.find("#preparation");
-      dishPreparation.html(dish.description);
+      dishPreparation.html(dish.instructions);
       addedRows.push(row);
     });
 

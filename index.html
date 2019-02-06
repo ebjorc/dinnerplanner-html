@@ -76,12 +76,14 @@
                     <select id="categoryInput" class="form-control col-md-3 col-2">
                     </select>
                     <button id="searchDishButton" type="button" class="btn btn-warning col-md-1 col-3  border border-dark	">Search</button>
-
                 </div>
-
         </div>
+        <div class="loader"></div>
         <div id="dishItemScrollView">
 
+        </div>
+        <div id="onEmptyLabel" class="centered">
+          <h3>No Results Found</h3>
         </div>
     </div>
 
@@ -90,38 +92,41 @@
     </div>
 
     <div id="dishDetailsView" class="col-lg-10">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 id="dishName"></h2>
-                <img id="dishImage"/>
-                <p id="dishDescription"></p>
-                <button id = "backButton" type="button" class="btn btn-warning">back to search</button>
-            </div>
-            <div class="col-lg-6">
-                <div id="Ingredients">
-                    <h3 id="ingredientsHeader" class="text-center"></h3>
-                    <hr>
-                    <table id="ingredientsTable" class="table table-borderless">
-                    </table>
-                    <hr>
-                    <div>
-                        <div class="row justify-content-md-center">
-                            <div class="col-lg-6">
-                                <button id = "addToMenuButton" type="button" class="btn btn-warning">Add to menu</button>
-                            </div>
-                            <div class="col-lg-6">
-                                <h6 id="totalDishPrice"></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="prep">
-            <h2>Preparation</h2>
-            <p id="preparation">
-            </p>
-        </div>
+      <div class="loader"></div>
+        <div id = "dishDetailsContainer">
+          <div class="row">
+              <div class="col-lg-6">
+                  <h2 id="dishName"></h2>
+                  <img id="dishImage"/>
+                  <p id="dishDescription"></p>
+                  <button id = "backButton" type="button" class="btn btn-warning">back to search</button>
+              </div>
+              <div id ="ingredientsTableView" class="col-lg-6">
+                  <div id="Ingredients">
+                      <h3 id="ingredientsHeader" class="text-center"></h3>
+                      <hr>
+                      <table id="ingredientsTable" class="table table-borderless">
+                      </table>
+                      <hr>
+                      <div>
+                          <div class="row justify-content-md-center">
+                              <div class="col-lg-6">
+                                  <button id = "addToMenuButton" type="button" class="btn btn-warning">Add to menu</button>
+                              </div>
+                              <div class="col-lg-6">
+                                  <h6 id="totalDishPrice"></h6>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="prep">
+              <h2>Preparation</h2>
+              <p id="preparation">
+              </p>
+          </div>
+      </div>
     </div>
 
     <div id="dinnerOverview" class="text-center">
@@ -142,8 +147,8 @@
 
                     <div class="col-lg-1 leftBorder priceCell">
                         <div class="bottomAlign">
-                            <h6>Total:</h6>
-                            <h6 id="totalPrice"></h6>
+                            <h4>Total:</h4>
+                            <h4 id="totalPrice"></h4>
                         </div>
                     </div>
                 </div>
@@ -172,25 +177,17 @@
         <div id="dinnerOverviewCell" class="col-lg-2 dishCell">
             <div>
                 <img id="dishImage">
-                <h2 id="dishName"></h2>
+                <h6 id="dishName"></h6>
             </div>
-            <h6 id="dishPrice"></h6>
+            <h4 id="dishPrice"></h4>
         </div>
 
         <div id="dish-row" class="contaier, dishRowCellClass">
           <div class="row">
             <div id ="dish" class="col-lg-6">
-              <div class="row justify-content-md-center">
-                <div class="col-lg-5 right-padding">
-                  <img id ="dishImage">
-                </div>
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-5">
-                  <h2 id = "dishName"></h2>
-                  <p id ="dishDescription"></p>
-                  </p>
-                </div>
+              <div class = "centered">
+                  <img id="dishImage">
+                  <h5 id="dishName" class = "centered"></h5>
               </div>
 
             </div>

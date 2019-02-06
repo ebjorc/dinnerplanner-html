@@ -16,13 +16,13 @@ var DinnerOverviewView = function (container,dishCell, model) {
         var cell = dishCell.clone();
 
         var dishName = cell.find("#dishName");
-        dishName.html(dish.name);
+        dishName.html(dish.title);
 
         var dishImage = cell.find("#dishImage");
-        dishImage.attr("src", "./images/" + dish.image);
+        dishImage.attr("src", 'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg');
 
         var dishPrice = cell.find("#dishPrice");
-        dishPrice.html(dish.type);
+        dishPrice.html(model.getMenuDishPrice(dish.id) * model.getNumberOfGuests() + " SEK");
 
         addedCells.push(cell);
       });

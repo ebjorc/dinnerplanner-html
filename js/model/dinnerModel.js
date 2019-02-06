@@ -24,16 +24,36 @@ var DinnerModel = function() {
   }
 
   this.setCurrentDish = function(dish) {
-    this.currentDish = dish;
+    currentDish = dish;
     this.notifyObservers(ChangeDetails.CURRENT_DISH_CHANGED);
   }
 
   this.getCurrentDish = function() {
-    return this.currentDish;
+    return currentDish;
   }
 
   this.getDishTypes = function(){
     return dishTypes;
+  }
+
+  this.getMenuDishPrice = function(id) {
+    for(key in dishesAdded){
+			if(dishesAdded[key].id == id) {
+				return getDishPrice(dishesAdded[key]);
+			}
+		}
+  }
+
+  var getDishPrice = function(dish) {
+    var totalPrice = 0;
+    dish.extendedIngredients.forEach(function(ingredient) {
+        totalPrice += ingredient.amount;
+    });
+    return totalPrice.toFixed(2);
+  }
+
+  this.getCurrentDishPrice = function(){
+    return getDishPrice(currentDish);
   }
 
   this.setFilterTypeAndKeyword = function(type, keyword) {
@@ -53,8 +73,10 @@ var DinnerModel = function() {
       {
       headers:{"X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"}
       })
+    .then(handleHTTPError)
     .then(function(response){return response.json();})
     .then(function(data){
+      currentDish = data;
       return data;
     });
   }
@@ -94,7 +116,7 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		var allIngridients = [];
     dishesAdded.forEach((dish) => {
-      dish.ingredients.forEach((currentIngredient) => {
+      dish.extendedIngredients.forEach((currentIngredient) => {
         allIngridients.push(currentIngredient)
       });
     });
@@ -106,9 +128,9 @@ var DinnerModel = function() {
     var ingredients = this.getAllIngredients();
     var totalPrice = 0;
     ingredients.forEach((ingredient) => {
-      totalPrice += ingredient.price;
+      totalPrice += ingredient.amount;
     });
-		return totalPrice * guests;
+		return (totalPrice * guests).toFixed(2);
 	}
 
   // Get dish price for a specific dish.
@@ -127,8 +149,15 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var dish = this.getDish(id);
-    dishesAdded.push(dish);
+    var dishAlreadyAdded = false;
+    dishesAdded.forEach( (dish) => {
+      if(dish.id == id) {
+        dishAlreadyAdded = true;
+        return;
+      }
+    });
+    if(dishAlreadyAdded) return;
+    dishesAdded.push(currentDish);
     this.notifyObservers(ChangeDetails.MENU_CHANGED);
 	};
 
@@ -157,35 +186,20 @@ var DinnerModel = function() {
       {
       headers:{"X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"}
       })
+    .then(handleHTTPError)
     .then(function(response){return response.json();})
     .then(function(data){
       dishes = data.results;
       return data.results;
     });
 
-
-
-
-    // return dishes.filter(function(dish) {
-    //   var found = true;
-    //   if(filter){
-    //     found = false;
-    //     dish.ingredients.forEach(function(ingredient) {
-    //       console.log(ingredient.name.toLowerCase())
-    //       console.log(filter.toLowerCase())
-    //       if(ingredient.name.toLowerCase().indexOf(filter.toLowerCase())!=-1) {
-    //         found = true;
-    //       }
-    //     });
-    //     if(dish.name.toLowerCase().indexOf(filter.toLowerCase()) != -1)
-    //     {
-    //       found = true;
-    //     }
-    //   }
-    //   return (dish.type == type || !type) && found;
-    // });
   }
 
+  var handleHTTPError = function(response) {
+    if(response.ok)
+       return response;
+    throw Error(response.statusText);
+  }
 
 
 	//function that returns a dish of specific ID

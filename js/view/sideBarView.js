@@ -1,7 +1,5 @@
 var SideBarView = function(container, sideBar ,model) {
 
-
-
   this.update = function(model, changeDetails) {
     if (changeDetails == ChangeDetails.GUESTS_CHANGED || changeDetails == ChangeDetails.MENU_CHANGED) {
       var dishes = model.getFullMenu();
@@ -13,10 +11,10 @@ var SideBarView = function(container, sideBar ,model) {
       dishes.forEach(function(dish) {
         var row = sideBar.clone();
         var name = row.find("#sideBarItemName")
-        name.html(dish.name);
+        name.html(dish.title);
 
         var price = row.find("#sideBarItemPrice")
-        price.html(model.getDishPrice(dish.id) * model.getNumberOfGuests());
+        price.html(model.getMenuDishPrice(dish.id) * model.getNumberOfGuests());
         rowsAdded.push(row);
       });
 
