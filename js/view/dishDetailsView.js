@@ -33,11 +33,11 @@ var DishDetailsView = function (container, model) {
   this.update = function(model, changeDetails) {
     var dish = model.getCurrentDish();
     if(!dish) return;
-    container.find("#dishName").html("");
-    container.find("#dishImage").attr('src','');
     if(dish && changeDetails == ChangeDetails.CURRENT_DISH_CHANGED) {
-
+      container.find("#dishName").html("");
+      container.find("#dishImage").attr('src','');
       container.find("#ingredientsTableView").hide();
+      container.find(".prep").hide();
       container.find(".loader").show();
       var dishDetails = model.getDishDetails(dish.id).then(details => {
         container.find(".prep").show();
