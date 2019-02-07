@@ -48,7 +48,7 @@ var DishSearchView = function(container, imageView, model, stateController) {
         redraw(dishes);
       }).catch(error => {
         container.find(".loader").hide();
-        alert(error);
+        alert("Error! Please check your internet connection");
       });
     }
     else if(changeDetails == ChangeDetails.MENU_CHANGED) {
@@ -65,6 +65,6 @@ var DishSearchView = function(container, imageView, model, stateController) {
     redraw(dishes);
   }).catch(error => {
     container.find(".loader").hide();
-    alert(error);
+    alert("Error! Please check your internet connection");
   });
 }

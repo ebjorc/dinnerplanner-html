@@ -71,7 +71,7 @@ var DinnerModel = function() {
     var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + id +"/information?includeNutrition=false"
     return fetch(baseUrl,
       {
-      headers:{"X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"}
+      headers:{"X-Mashape-Key": apiKey}
       })
     .then(handleHTTPError)
     .then(function(response){return response.json();})
@@ -174,9 +174,9 @@ var DinnerModel = function() {
 	// you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	// if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
-    var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?"
+    var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=20&"
     if(type){
-      baseUrl += "type=" + type + "?";
+      baseUrl += "type=" + type + "&";
     }
     if(filter){
       baseUrl += "query=" + filter
@@ -184,7 +184,7 @@ var DinnerModel = function() {
 
     return fetch(baseUrl,
       {
-      headers:{"X-Mashape-Key": "3d2a031b4cmsh5cd4e7b939ada54p19f679jsn9a775627d767"}
+      headers:{"X-Mashape-Key": apiKey}
       })
     .then(handleHTTPError)
     .then(function(response){return response.json();})

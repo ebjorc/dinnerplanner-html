@@ -48,7 +48,7 @@ var DishDetailsView = function (container, model) {
       }).catch(error => {
         container.find(".loader").hide();
         container.find(".prep").hide();
-        alert(error);
+        alert("Error! Please check your internet connection");
       });
     } else if (dish && changeDetails == ChangeDetails.GUESTS_CHANGED) {
         redrawTable(dish)
