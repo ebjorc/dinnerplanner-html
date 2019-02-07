@@ -59,6 +59,10 @@ var GeneralStateController = function(model) {
 
   }
 
+  this.checkIfDishSearchViewIsVisible = function(){
+    return (dishSearchViewHtml.is(":visible"))
+  }
+
 
   this.showSelectDishScreen = function() {
     this.hideAll();

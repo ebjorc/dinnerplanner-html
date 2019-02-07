@@ -7,6 +7,7 @@ var DishItemCellView = function(view, dish) {
   img.src = 'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg';
 
   var imgText = document.createElement('p');
+  imgText.classList.add("imgText");
   imgText.textContent = dish.title;
 
   div.append(img);
