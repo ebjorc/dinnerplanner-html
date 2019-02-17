@@ -68,7 +68,7 @@ var DinnerModel = function() {
   }
 
   this.getDishDetails = function(id) {
-    var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + id +"/information?includeNutrition=false"
+    var baseUrl = "http://sunset.nada.kth.se:8080/iprog/group/13/recipes/" + id +"/information?includeNutrition=false"
     return fetch(baseUrl,
       {
       headers:{"X-Mashape-Key": apiKey}
@@ -174,7 +174,7 @@ var DinnerModel = function() {
 	// you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	// if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
-    var baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=20&"
+    var baseUrl = "http://sunset.nada.kth.se:8080/iprog/group/13/recipes/search?number=20&"
     if(type){
       baseUrl += "type=" + type + "&";
     }
