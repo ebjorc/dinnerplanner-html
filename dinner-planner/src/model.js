@@ -54,7 +54,6 @@ class DinnerModel  {
       .then(this.handleHTTPError)
       .then(function(response){return response.json();})
       .then(function(data){
-        this.currentDish = data;
         return data;
       });
     }

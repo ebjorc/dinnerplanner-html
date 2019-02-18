@@ -1,13 +1,16 @@
 import React from 'react';
 
 
-export const SearchDishView = ({dishes, fetchingData, searchPressed, dishPressed}) =>
+export const SearchDishView = ({dishes, fetchingData, searchPressed, dishPressed, types, setType, setKeyword}) =>
     <div id="dishSearchView" className="col-md-10 col-12 bg-white">
         <div id="findDishView">
             <h3 id="findDishHeader">Find a dish</h3>
             <div id="searchbar" className="row border-bottom border-dark">
-                <input id="keyWordsInput" className="form-control col-md-2 col-2" type="text" placeholder="Enter key words"/>
-                <select id="categoryInput" className="form-control col-md-3 col-2">
+                <input id="keyWordsInput" className="form-control col-md-2 col-2" type="text" placeholder="Enter key words" onChange={e=>setKeyword(e.target.value)}/>
+                <select id="categoryInput" className="form-control col-md-3 col-2" onChange={e=>setType(e.target.value)}>
+                {types.map(type =>
+                    <option key={type} value={type}>{type}</option>
+                )}
                 </select>
                 <button id="searchDishButton" type="button" className="btn btn-warning col-md-1 col-3  border border-dark" onClick={e=>searchPressed()}>Search</button>
             </div>
@@ -23,8 +26,8 @@ export const SearchDishView = ({dishes, fetchingData, searchPressed, dishPressed
         </div>
         )}
         </div>
-        <div id="onEmptyLabel" className="centered" >
+        {(dishes.length == 0 && !fetchingData) ? <div id="onEmptyLabel" className="centered" >
             <h3>No Results Found</h3>
-        </div>
+        </div> : null}
         
     </div>

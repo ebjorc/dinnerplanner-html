@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const SideBar = ({numberOfGuests, setNumber,confirmButtonClicked}) =>
+export const SideBar = ({menu, numberOfGuests, setNumber, confirmButtonClicked, totalMenuPrice}) =>
         <div id="sideBarView" className="col-md-2 col-12 border-right border-dark">
             <div id="sideBarHeader" className="row justify-content-around">
                 <h3 className="col-md-8 col-10">My Dinner</h3>
@@ -23,10 +23,18 @@ export const SideBar = ({numberOfGuests, setNumber,confirmButtonClicked}) =>
                 <h6 id="costText" className="col-md-3 col-2">Cost</h6>
             </div>
             <div id="sideBarItemDiv">
-
-            </div>
+            {
+                menu.map(dish => 
+                    <div id="sideBarItem" className="text-warning row border border-dark justify-content-around sideBarItemClass" key={dish.id} >
+                            <h6 id="sideBarItemName" className="col-md-8 col-10 align-self-center"> {dish.title} </h6>
+                            <h6 id="sideBarItemPrice" className="col-md-3 col-2 align-self-center"> {dish.totalPrice * numberOfGuests}</h6>
+                    </div> 
+                )
+                
+            }
+            </div>    
             <div id="costCounter">
-                <h6 id = "totalCostLabel"  className="text-right text-warning">0 SEK</h6>
+                <h6 id = "totalCostLabel"  className="text-right text-warning">{totalMenuPrice * numberOfGuests + ' SEK'}</h6>
             </div>
             <div  className="col text-center">
                 <button id="confirmDinnerButton" type="button" className="btn btn-secondary btn-md border border-dark" onClick={e=>confirmButtonClicked()}>Confirm Dinner</button>
