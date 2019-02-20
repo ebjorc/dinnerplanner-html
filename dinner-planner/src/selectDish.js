@@ -26,7 +26,7 @@ class SelectDish extends Component {
     this.props.model.getDishDetails(id).then(dish => {
       this.setState({currentDish: dish, fetchingDishDetails: false});
     }).catch(error => {
-      this.setState({fetchingDishDetails: false})
+      this.setState({fetchingDishDetails: false,showDetailsView: false, showSearchView: true})
       alert("Error! Please check your internet connection");
     });
   }

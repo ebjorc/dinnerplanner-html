@@ -18,6 +18,18 @@ class App extends Component {
       menu: [],
       guests: 1,
     }
+
+    //localStorage.clear();
+    
+    var menu = localStorage.getItem('menu');
+    if(menu) {
+      this.state.menu = JSON.parse(menu);
+    }
+
+    var guests = localStorage.getItem('guests');
+    if(guests) {
+      this.state.guests = JSON.parse(guests);
+    }
   }
 
   addToMenu = function(dishToAdd) {
@@ -31,7 +43,13 @@ class App extends Component {
       });
     if(dishAlreadyAdded) return;
     tempMenu.push(dishToAdd);
+    localStorage.setItem('menu', JSON.stringify(this.state.menu));
     this.setState({menu: tempMenu});
+  }
+
+  setGuests = function(guests) {
+    localStorage.setItem('guests', JSON.stringify(guests));
+    this.setState({guests: guests});
   }
 
   getTotalPrice = function() {
@@ -53,8 +71,8 @@ class App extends Component {
           <h1> Dinner planner</h1>
         </div>
         { this.state.showHomeView ? <HomeView  createDinner={x=>this.setState({showHomeView:false, showSelectDish:true})} /> : null }
-        { this.state.showSelectDish ? <SelectDish menu={this.state.menu} addToMenu={dish=> this.addToMenu(dish)} confirmClicked={x=> this.state.menu.length == 0 ? true : this.setState({showHomeView:false, showSelectDish:false, showDinnerOverview:true})} model = {this.model} guests = {this.state.guests} setNumberOfGuests = {x => this.setState({guests: x})}/> : null }
-        {this.state.showDinnerPrintout ? <DinnerPrintout menu={this.state.menu} guests={this.state.guests} backButtonPressed={x=>this.setState({showHomeView:false, showSelectDish:true, showDinnerOverview:false, showDinnerPrintout:false})}/> : null}
+        { this.state.showSelectDish ? <SelectDish menu={this.state.menu} addToMenu={dish=> this.addToMenu(dish)} confirmClicked={x=> this.state.menu.length == 0 ? true : this.setState({showHomeView:false, showSelectDish:false, showDinnerOverview:true})} model = {this.model} guests = {this.state.guests} setNumberOfGuests = {x => this.setGuests(x)}/> : null }
+        { this.state.showDinnerPrintout ? <DinnerPrintout menu={this.state.menu} guests={this.state.guests} backButtonPressed={x=>this.setState({showHomeView:false, showSelectDish:true, showDinnerOverview:false, showDinnerPrintout:false})}/> : null}
         { this.state.showDinnerOverview ? <DinnerOverview menu={this.state.menu} guests={this.state.guests} totalPrice={this.getTotalPrice()} backButtonPressed={x=>this.setState({showHomeView:false, showSelectDish:true, showDinnerOverview:false, showDinnerPrintout: false})} confirmPressed={x=>this.setState({showHomeView:false, showSelectDish:false, showDinnerOverview:false, showDinnerPrintout: true})} /> : null}
       </div>
     );
