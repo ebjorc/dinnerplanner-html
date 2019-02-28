@@ -5,6 +5,7 @@ import SelectDish from './selectDish';
 import DinnerModel from './model'
 import { DinnerOverview } from './Presentation/dinnerOverview';
 import { DinnerPrintout } from './Presentation/dinnerPrintout';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -70,7 +71,7 @@ class App extends Component {
         <div id="DinnerTitle" className="bg-light text-center border-bottom border-dark">
           <h1> Dinner planner</h1>
         </div>
-        { this.state.showHomeView ? <HomeView  createDinner={x=>this.setState({showHomeView:false, showSelectDish:true})} /> : null }
+        { <Route exact path="/" component = {this.state.showHomeView ? <HomeView  createDinner={x=>this.setState({showHomeView:false, showSelectDish:true})} /> : null} />}
         { this.state.showSelectDish ? <SelectDish menu={this.state.menu} addToMenu={dish=> this.addToMenu(dish)} confirmClicked={x=> this.state.menu.length == 0 ? true : this.setState({showHomeView:false, showSelectDish:false, showDinnerOverview:true})} model = {this.model} guests = {this.state.guests} setNumberOfGuests = {x => this.setGuests(x)}/> : null }
         { this.state.showDinnerPrintout ? <DinnerPrintout menu={this.state.menu} guests={this.state.guests} backButtonPressed={x=>this.setState({showHomeView:false, showSelectDish:true, showDinnerOverview:false, showDinnerPrintout:false})}/> : null}
         { this.state.showDinnerOverview ? <DinnerOverview menu={this.state.menu} guests={this.state.guests} totalPrice={this.getTotalPrice()} backButtonPressed={x=>this.setState({showHomeView:false, showSelectDish:true, showDinnerOverview:false, showDinnerPrintout: false})} confirmPressed={x=>this.setState({showHomeView:false, showSelectDish:false, showDinnerOverview:false, showDinnerPrintout: true})} /> : null}
