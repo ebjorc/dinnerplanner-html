@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 
 export const DishDetailsView = ({dish, backButtonClicked, fetchingDishDetails, guestNumber, totalPrice, addClicked}) =>
@@ -8,9 +9,11 @@ export const DishDetailsView = ({dish, backButtonClicked, fetchingDishDetails, g
             <div className="row">
                 <div className="col-lg-6">
                     <h2 id="dishName">{(dish && !fetchingDishDetails) ? dish.title : ""}</h2>
-                    <img id="dishImage" src={(dish && !fetchingDishDetails) ? 'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg' : ""}/>
+                    <img alt="" id="dishImage" src={(dish && !fetchingDishDetails) ? 'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg' : ""}/>
                     <p id="dishDescription"></p>
+                    <Link to="/search">
                     <button id = "backButton" type="button" className="btn btn-warning" onClick={e=>backButtonClicked()}>back to search</button>
+                    </Link>
                 </div>
                 {(dish && !fetchingDishDetails) ? <div id ="ingredientsTableView" className="col-lg-6">
                     <div id="Ingredients">

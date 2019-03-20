@@ -3,6 +3,7 @@ import './App.css';
 import { SideBar } from './Presentation/sideBar';
 import { SearchDishView } from './Presentation/searchDishView';
 import { DishDetailsView } from './Presentation/dishDetailsView';
+import {BrowserRouter, Route} from "react-router-dom";
 
 class SelectDish extends Component {
   constructor(props) {
@@ -79,15 +80,22 @@ class SelectDish extends Component {
     return totalPrice;
   }
 
+  // confirmClicked = function(){
+  //   this.
+  // }
+
+
   render() {
     return (
+      <BrowserRouter>
       <div>
         <div id="rowView" className="row">
         <SideBar menu={this.updateMenuPrice(this.props.menu)} numberOfGuests={this.props.guests} setNumber={x => this.props.setNumberOfGuests(x)} confirmButtonClicked={x => this.props.confirmClicked()} totalMenuPrice={this.getTotalMenuPrice()} />
-        { this.state.showSearchView ? <SearchDishView types={this.props.model.getDishTypes()} dishPressed={x=>this.fetchDishDetails(x)} dishes={this.state.dishes} fetchingData={this.state.fetchingDishes} searchPressed={x=>this.fetchDishes(true)} setType={x=> this.setType(x)} setKeyword={x=> this.setKeyword(x)}/> : null }
-        { this.state.showDetailsView ? <DishDetailsView addClicked={x=> this.props.addToMenu(this.state.currentDish)} totalPrice={this.state.currentDish ? this.getDishPrice(this.state.currentDish): null} guestNumber={this.props.guests} fetchingDishDetails={this.state.fetchingDishDetails} dish={this.state.currentDish} backButtonClicked={x=>this.setState({showSearchView:true, showDetailsView:false})}/> : null }
+        {this.state.showSearchView ? <SearchDishView types={this.props.model.getDishTypes()} dishPressed={x=>this.fetchDishDetails(x)} dishes={this.state.dishes} fetchingData={this.state.fetchingDishes} searchPressed={x=>this.fetchDishes(true)} setType={x=> this.setType(x)} setKeyword={x=> this.setKeyword(x)}/> : null }
+        {this.state.showDetailsView ? <Route path="/details" render={() => <DishDetailsView addClicked={x=> this.props.addToMenu(this.state.currentDish)} totalPrice={this.state.currentDish ? this.getDishPrice(this.state.currentDish): null} guestNumber={this.props.guests} fetchingDishDetails={this.state.fetchingDishDetails} dish={this.state.currentDish} backButtonClicked={x=>this.setState({showSearchView:true, showDetailsView:false})}/>}/>: null}
         </div>
       </div>
+      </BrowserRouter>
     );
   }
 }

@@ -20,7 +20,7 @@ export const DinnerPrintout = ({menu, guests,backButtonPressed}) =>
                 <div class="row">
                     <div id ="dish" class="col-lg-6">
                         <div class = "centered">
-                            <img id="dishImage" src={'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg'}/>
+                            <img alt="" id="dishImage" src={'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg'}/>
                             <h5 id="dishName" class = "centered">{dish.title}</h5>
                         </div>
                     </div>

@@ -1,6 +1,4 @@
 import React from 'react';
-import { DishDetailsView } from './dishDetailsView';
-
 
 export const DinnerOverview = ({menu, totalPrice, guests, backButtonPressed, confirmPressed}) =>
     <div id="dinnerOverview" className="text-center">
@@ -19,9 +17,9 @@ export const DinnerOverview = ({menu, totalPrice, guests, backButtonPressed, con
             <div className="dishContainer">
                 <div id="dishRowContainer" className="row justify-content-md-center">
                     {menu.map(dish => 
-                        <div id="dinnerOverviewCell" class="col-lg-2 dishCell" key={dish.id}>
+                        <div id="dinnerOverviewCell" className="col-lg-2 dishCell" key={dish.id}>
                             <div>
-                                <img id="dishImage" src={'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg'}/>
+                                <img alt="" id="dishImage" src={'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg'}/>
                                 <h6 id="dishName">{dish.title}</h6>
                             </div>
                             <h4 id="dishPrice">{dish.price}</h4>
