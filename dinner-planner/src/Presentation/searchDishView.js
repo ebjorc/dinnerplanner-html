@@ -17,20 +17,19 @@ export const SearchDishView = ({dishes, fetchingData, searchPressed, dishPressed
             </div>
         </div>
         {fetchingData ? <div className="loader"></div>  : null}
+        
         <div id="dishItemScrollView"> 
-        <Link to="/details">
         {dishes.map(dish=> 
-        <div id="dishItemCellView" className="imgContainer" key={dish.id} onClick={e=>dishPressed(dish.id)}>
-        
-            <div className="imgContainer">
-            
-                <img alt="" src = {'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg'} />
-                <p className='imgText'> {dish.title} </p>
+            <div id="dishItemCellView" className="imgContainer" key={dish.id} >
+                
+                <Link to={"/details/" + dish.id}>
+                <div className="imgContainer" onClick={e=>dishPressed(dish.id)}>
+                    <img alt="" src = {'https://spoonacular.com/recipeImages/' + dish.id + '-312x231.jpg'} />
+                    <p className='imgText'> {dish.title} </p> 
+                </div>
+                </Link>
             </div>
-        </div>
-        
         )}
-        </Link>
         </div>
         {(dishes.length == 0 && !fetchingData) ? <div id="onEmptyLabel" className="centered" >
             <h3>No Results Found</h3>

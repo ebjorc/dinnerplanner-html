@@ -47,7 +47,6 @@ class App extends Component {
     tempMenu.push(dishToAdd);
     localStorage.setItem('menu', JSON.stringify(this.state.menu));
     this.setState({menu: tempMenu});
-    console.log(this.state.menu)
   }
 
   setGuests = function(guests) {
@@ -75,6 +74,7 @@ class App extends Component {
         </div>
         {<Route exact path="/" render={() => <HomeView createDinner={x=>this.setState({showHomeView:false, showSelectDish:true})}/>}/> }
         {<Route path="/search" render={() => <SelectDish menu={this.state.menu} addToMenu={dish=> this.addToMenu(dish)} confirmClicked={x=> this.state.menu.length == 0 ? true : window.location.assign("/overview")} model = {this.model} guests = {this.state.guests} setNumberOfGuests = {x => this.setGuests(x)}/>}/>}
+        {<Route path="/details" render={() => <SelectDish menu={this.state.menu} addToMenu={dish=> this.addToMenu(dish)} confirmClicked={x=> this.state.menu.length == 0 ? true : window.location.assign("/overview")} model = {this.model} guests = {this.state.guests} setNumberOfGuests = {x => this.setGuests(x)}/>}/>}
         {<Route path ="/printout" render={() => <DinnerPrintout menu={this.state.menu} guests={this.state.guests} backButtonPressed={x=>this.setState({showSelectDish:true, showDinnerPrintout:false})}/>}/>}
         {<Route path ="/overview" render={() => <DinnerOverview menu={this.state.menu} guests={this.state.guests} totalPrice={this.getTotalPrice()} backButtonPressed={x=>this.setState({showSelectDish:true, showDinnerOverview:false, })} confirmPressed={x=>this.setState({showDinnerOverview:false, showDinnerPrintout: true})} />}/>}
       </div>
