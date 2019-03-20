@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 export const DinnerOverview = ({menu, totalPrice, guests, backButtonPressed, confirmPressed}) =>
     <div id="dinnerOverview" className="text-center">
@@ -8,7 +9,9 @@ export const DinnerOverview = ({menu, totalPrice, guests, backButtonPressed, con
                     <h2 id="numberOfGuests">{"My Dinner: " + guests + " guests"}</h2>
                 </div>
                 <div className="col-lg-6">
+                <Link to="/search">
                     <button id = "dinnerOverviewBackButton" type="button" className="btn btn-warning" onClick={e=>backButtonPressed()}>go back and edit dinner</button>
+                </Link>
                 </div>
             </div>
         </div>
@@ -33,7 +36,9 @@ export const DinnerOverview = ({menu, totalPrice, guests, backButtonPressed, con
                     </div>
                 </div>
                 <div id="buttonView">
+                <Link to="/printout">
                     <button id = "dinnerOverviewPrintButton" type="button" className="btn btn-warning btn-lg" onClick={e=>confirmPressed()}>Print Full Recipe</button>
+                </Link>
                 </div>
             </div>
         </div>

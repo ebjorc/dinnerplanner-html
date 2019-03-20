@@ -39,8 +39,6 @@ export const SideBar = ({menu, numberOfGuests, setNumber, confirmButtonClicked, 
                 <h6 id = "totalCostLabel"  className="text-right text-warning">{totalMenuPrice * numberOfGuests + ' SEK'}</h6>
             </div>
             <div  className="col text-center">
-            <Link to="/overview">
                 <button id="confirmDinnerButton" type="button" className="btn btn-secondary btn-md border border-dark" onClick={e=>confirmButtonClicked()}>Confirm Dinner</button>
-            </Link>
             </div>
         </div>
