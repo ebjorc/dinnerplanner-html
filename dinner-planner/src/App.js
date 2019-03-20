@@ -6,7 +6,11 @@ import SelectDish from './selectDish';
 import DinnerModel from './model'
 import { DinnerOverview } from './Presentation/dinnerOverview';
 import { DinnerPrintout } from './Presentation/dinnerPrintout';
+<<<<<<< HEAD
 import { DishDetailsView } from './Presentation/dishDetailsView';
+=======
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+>>>>>>> 7adb305a2ae6f3d7616f883e4bf9e4df6f4f4a97
 
 class App extends Component {
   constructor() {
